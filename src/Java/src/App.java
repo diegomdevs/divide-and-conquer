@@ -8,5 +8,6 @@ public class App {
         list.add(3);
         System.out.println(ListItemCounter.listItemCounter(list, 0));
         System.out.println(ListItemSum.listItemSum(list, 0));
+        System.out.println(BinarySearch.binarySearch(list, 2, 0, list.size()));
     }
 }
