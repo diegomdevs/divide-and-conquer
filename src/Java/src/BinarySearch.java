@@ -1,17 +1,20 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BinarySearch {
-  public static int binarySearch(ArrayList<Integer> list, int target, int low, int high) {
-    if (low <= high) {
-      final int mid = (int) Math.floor((low + high) / 2);
-      final int guess = list.get(mid);
-      if (guess != target) {
-        if (guess < target)
-          low = mid + 1;
-        else
-          high = mid - 1;
-      } else
-        return mid;
+  public static int binarySearch(int[] list, int target) {
+    if (list.length != 0) {
+      final int mid = (int) Math.floor(list.length / 2);
+      if (list[mid] != target) {
+        if (list[mid] > target) {
+          return binarySearch(Arrays.copyOfRange(list, 0, mid), target);
+        }
+        int result = binarySearch(Arrays.copyOfRange(list, mid, list.length), target);
+        if (result != -1) {
+          return mid + result;
+        }
+        return result;
+      }
+      return mid;
     }
     return -1;
   }

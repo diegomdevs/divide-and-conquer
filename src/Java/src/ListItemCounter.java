@@ -1,12 +1,11 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ListItemCounter {
-  public static int listItemCounter(ArrayList<Integer> list, int iterator) {
-    try {
-      list.get(iterator);
-      return 1 + listItemCounter(list, ++iterator);
-    } catch (Exception e) {
-      return 0;
+  public static int listItemCounter(int[] list) {
+    if (list.length != 1) {
+      return 1 + listItemCounter(Arrays.copyOfRange(list, 1, list.length));
     }
+    return 1;
   }
 }
