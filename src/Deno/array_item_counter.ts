@@ -4,6 +4,11 @@
  * @param iterator iterator to access to each list item.
  * @returns the count of the array items.
  */
-function arrayItemCounter(arr: any[], iterator: number): number {
-  return arr[iterator] ? 1 + arrayItemCounter(arr, iterator + 1) : 0;
+export function array_item_counter(arr: number[]): number {
+  if (arr.length != 1) {
+    const mid = Math.floor(arr.length / 2);
+    return array_item_counter(arr.slice(0, mid)) +
+      array_item_counter(arr.slice(mid));
+  }
+  return 1;
 }

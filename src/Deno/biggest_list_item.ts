@@ -1,11 +1,13 @@
-export function biggestListItem(
+export function biggest_array_item(
   arr: number[],
-  iterator: number,
-  biggestItem: number
 ): number {
-  if (arr[iterator] > biggestItem) biggestItem = arr[iterator];
+  if (arr.length > 1) {
+    const mid = Math.floor(arr.length / 2);
 
-  return arr[++iterator]
-    ? biggestListItem(arr, iterator, biggestItem)
-    : biggestItem;
+    const left = biggest_array_item(arr.slice(0, mid));
+    const right = biggest_array_item(arr.slice(mid));
+
+    return Math.max(left, right);
+  }
+  return arr[0];
 }
