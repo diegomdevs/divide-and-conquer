@@ -5,11 +5,10 @@
  * @returns the sum of all array items.
  */
 export function array_item_sum<T extends number>(arr: T[]): number {
-  if (arr.length != 1) {
-    const middle = Math.floor(arr.length / 2);
+  if (arr.length === 1) return arr[0];
 
-    return array_item_sum(arr.slice(0, middle)) +
-      array_item_sum(arr.slice(middle));
-  }
-  return arr[0];
+  const mid = Math.floor(arr.length / 2);
+
+  return array_item_sum(arr.slice(0, mid)) +
+    array_item_sum(arr.slice(mid));
 }

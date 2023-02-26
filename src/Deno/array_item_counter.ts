@@ -5,10 +5,8 @@
  * @returns the count of the array items.
  */
 export function array_item_counter(arr: number[]): number {
-  if (arr.length != 1) {
-    const mid = Math.floor(arr.length / 2);
-    return array_item_counter(arr.slice(0, mid)) +
-      array_item_counter(arr.slice(mid));
-  }
-  return 1;
+  if (arr.length === 1) return 1;
+  const mid = Math.floor(arr.length / 2);
+  return array_item_counter(arr.slice(0, mid)) +
+    array_item_counter(arr.slice(mid));
 }
